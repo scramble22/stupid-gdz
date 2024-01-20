@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>n-779</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header input {
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 80px auto 20px;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>stupid-gdz</h1>
+        <input type="text" id="taskNumber" placeholder="Номер задания">
+    </header>
+
+    <div class="container">
+        <h1>n-779</h1>
+        <p>Рассмотрим уравнение: <strong>2x^2 + 4x + 2 = 0</strong></p>
+        
+        <p>Решение уравнения: <strong>x = -1</strong></p>
+
+        <img src="al-779.jpg" alt="Случайное изображение">
+        
+        <p>Дополнительный текст или решение...</p>
+    </div>
+
+    <footer>
+        &copy; 2024 stupid-gdz. Все права защищены.
+    </footer>
+
+    <script>
+        const taskInput = document.getElementById('taskNumber');
+
+        taskInput.addEventListener('change', () => {
+            const taskNumber = taskInput.value;
+            if (taskNumber !== '') {
+                const taskURL = `algebra_task${taskNumber}.html`;
+                window.location.href = taskURL;
+            }
+        });
+    </script>
+</body>
+</html>

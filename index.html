@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Выбор предмета</title>
+    <style>
+        header input {
+            padding: 8px;
+            font-size: 14px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            width: calc(100% - 40px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 80px auto 20px;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex-grow: 1; /* Растягиваем контейнер, чтобы он занимал оставшееся пространство */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>stupid-gdz</h1>
+        <input type="text" id="taskNumber" placeholder="алгебра 666">
+    </header>
+
+    <div class="container">
+        <h1>Выберите предмет</h1>
+        <ul>
+            <li><a href="algebra.html">Алгебра</a></li>
+            <li><a href="russian.html">Русский язык</a></li>
+            <li><a href="chemistry.html">Химия</a></li>
+            <li><a href="physics.html">Физика</a></li>
+            <!-- Добавьте другие предметы по мере необходимости -->
+        </ul>
+    </div>
+
+    <footer>
+        &copy; 2024 stupid-gdz. Все права защищены.
+    </footer>
+
+    <script src="placeholder.js"></script>
+</body>
+</html>
