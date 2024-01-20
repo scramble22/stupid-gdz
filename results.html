@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Результаты уроков</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            width: calc(100% - 40px);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header input {
+            padding: 8px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto 20px;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .separator {
+            border-bottom: 2px solid #ddd;
+            margin: 20px 0;
+        }
+
+        .lesson-list,
+        .result-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .lesson-list-item,
+        .result-list-item {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .action-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>stupid-gdz</h1>
+        <input type="text" id="taskNumber" placeholder="Номер задания/урока">
+    </header>
+
+    <div class="container">
+        <a href="#" class="action-button">Актуальное дз</a>
+        <div class="separator"></div>
+        <h1>Выберите номер урока</h1>
+        <ul class="lesson-list">
+            <li class="lesson-list-item"><a href="#">Урок 1</a></li>
+            <li class="lesson-list-item"><a href="#">Урок 2</a></li>
+            <li class="lesson-list-item"><a href="#">Урок 3</a></li>
+            <!-- Добавьте другие уроки по мере необходимости -->
+        </ul>
+
+        <div class="separator"></div>
+
+        <h1>Результаты уроков</h1>
+        <ul class="result-list">
+            <!-- Результаты будут добавляться динамически с использованием JavaScript -->
+        </ul>
+    </div>
+
+    <footer>
+        &copy; 2024 stupid-gdz. Все права защищены.
+    </footer>
+
+    <script>
+        const taskInput = document.getElementById('taskNumber');
+        const lessonList = document.querySelector('.lesson-list');
+        const resultList = document.querySelector('.result-list');
+
+        taskInput.addEventListener('change', () => {
+            const inputText = taskInput.value.trim();
+
+            // Переводы уроков с русского на английский
+            const subjectTranslations = {
+                'химия': 'chemistry',
+                'алгебра': 'algebra',
+                // Добавьте другие предметы по мере необходимости
+            };
+
+            // Очищаем предыдущие результаты
+            lessonList.innerHTML = '';
+            resultList.innerHTML = '';
+
+            // Находим уроки с заданным номером
+            const lessonsWithNumber = findLessonsByNumber(parseInt(inputText, 10));
+
+            // Выводим результаты на страницу
+            console.log('Lessons with number:', lessonsWithNumber);
+
+            lessonsWithNumber.forEach(lessonURL => {
+                const listItem = document.createElement('li');
+                listItem.className = 'lesson-list-item';
+                const link = document.createElement('a');
+                link.href = lessonURL;
+                link.textContent = lessonURL;
+                listItem.appendChild(link);
+                lessonList.appendChild(listItem);
+            });
+        });
+
+        // Функция для поиска уроков с заданным номером
+        function findLessonsByNumber(lessonNumber) {
+            // Путь к папке с уроками
+            const lessonFolderPath = 'lessons';
+
+            // Получаем список всех файлов в папке уроков
+            const lessonFiles = [
+                'algebra_task1.html',
+                'algebra_task2.html',
+                'algebra_task3.html',
+                // Добавьте другие уроки по мере необходимости
+            ];
+
+            console.log('Lesson files:', lessonFiles);
+
+            const lessonsWithNumber = lessonFiles.filter(lessonFile => lessonFile.includes(`_task${lessonNumber}.html`));
+
+            // Выводим результаты поиска
+            console.log('Lessons found:', lessonsWithNumber);
+
+            lessonsWithNumber.forEach(lessonURL => {
+                const listItem = document.createElement('li');
+                listItem.className = 'result-list-item';
+                const link = document.createElement('a');
+                link.href = lessonURL;
+                link.textContent = lessonURL;
+                listItem.appendChild(link);
+                resultList.appendChild(listItem);
+            });
+
+            return lessonsWithNumber;
+        }
+    </script>
+</body>
+</html>

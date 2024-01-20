@@ -1,0 +1,38 @@
+<!-- login.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Страница входа</title>
+    <!-- Ваши стили и другие мета-теги -->
+</head>
+<body>
+    <h1>Вход на сайт</h1>
+    <form id="loginForm">
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password">
+        <button type="button" onclick="performLogin()">Войти</button>
+    </form>
+
+    <script>
+        function performLogin() {
+            // Проверка введенного пароля
+            const enteredPassword = document.getElementById("password").value;
+            const correctPassword = "жопа хуй 777";
+
+            if (enteredPassword === correctPassword) {
+                // Сохранение правильного пароля в локальное хранилище
+                localStorage.setItem("pass", correctPassword);
+                
+                // Перенаправление на главную страницу после успешного входа
+                window.location.href = "index.html";
+            } else {
+                alert("Неверный пароль. Попробуйте еще раз.");
+            }
+        }
+    </script>
+</body>
+</html>
