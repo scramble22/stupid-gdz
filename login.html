@@ -12,26 +12,41 @@
 <body>
     <h1>Вход на сайт</h1>
     <form id="loginForm">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required>
+        
         <label for="password">Пароль:</label>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" name="password" required>
+        
         <button type="button" onclick="performLogin()">Войти</button>
     </form>
 
+    <script src="users.js"></script>
     <script>
         function performLogin() {
-            // Проверка введенного пароля
+            // Получение введенных данных
+            const enteredUsername = document.getElementById("username").value;
             const enteredPassword = document.getElementById("password").value;
-            const correctPassword = "жопа хуй 777";
 
-            if (enteredPassword === correctPassword) {
-                // Сохранение правильного пароля в локальное хранилище
-                localStorage.setItem("pass", correctPassword);
-                
+            // Поиск пользователя с введенным именем
+            const user = users.find(u => u.username === enteredUsername);
+
+            if (user && user.password === enteredPassword && isUserActive(user)) {
+                // Сохранение имени пользователя в локальное хранилище
+                localStorage.setItem("username", enteredUsername);
+
                 // Перенаправление на главную страницу после успешного входа
                 window.location.href = "index.html";
             } else {
-                alert("Неверный пароль. Попробуйте еще раз.");
+                alert("Неверное имя пользователя или пароль, или пользователь неактивен.");
             }
+        }
+
+        function isUserActive(user) {
+            // Проверка, активен ли пользователь на текущий момент
+            const currentDate = new Date();
+            const expirationDate = new Date(user.expirationDate);
+            return currentDate <= expirationDate;
         }
     </script>
 </body>

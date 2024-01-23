@@ -50,11 +50,22 @@
             cursor: pointer;
             border-radius: 5px;
         }
+
+        .logo {
+            text-decoration: none;
+            color: white;
+            border: none;
+        }
+
+        .logo:hover {
+            color: cyan;
+            background-color: #333;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>stupid-gdz</h1>
+        <a class="logo" href="index.html"><h1>stupid-gdz</h1></a>
         <input type="text" id="taskNumber" placeholder="Номер задания/урока">
     </header>
 
@@ -63,9 +74,9 @@
         <div class="separator"></div>
         <h1>Выберите номер урока</h1>
         <ul class="lesson-list">
-            <li class="lesson-list-item"><a href="algebra_task779.html">Урок 779</a></li>
-            <li class="lesson-list-item"><a href="#">Урок 2</a></li>
-            <li class="lesson-list-item"><a href="#">Урок 3</a></li>
+            <li class="lesson-list-item"><a class="lesson" href="algebra_task779.html">Урок 779</a></li>
+            <li class="lesson-list-item"><a class="lesson" href="#">Урок 2</a></li>
+            <li class="lesson-list-item"><a class="lesson" href="#">Урок 3</a></li>
             <!-- Добавьте другие уроки по мере необходимости -->
         </ul>
 
@@ -77,6 +88,6 @@
     </footer>
 
     <script src="JS/pass-check.js"></script>
+    <script src="JS/placeholder.js"></script>
 </body>
 </html>
-ƒ
